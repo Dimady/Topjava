@@ -34,8 +34,8 @@ public class MealService {
         return repository.getAll(userId);
     }
 
-    public List<Meal> getAll(int userId, LocalDate dateFrom, LocalDate dateTo) {
-        return repository.getAll(userId, dateFrom, dateTo);
+    public List<Meal> getAlls(int userId, LocalDate dateFrom, LocalDate dateTo) {
+        return repository.getAlls(userId, dateFrom, dateTo);
     }
 
     public Meal update(Meal meal, int userId) {

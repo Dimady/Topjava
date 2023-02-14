@@ -19,5 +19,5 @@ public interface MealRepository {
     List<Meal> getAll(int userId);
 
     // ORDERED dateTime desc
-    List<Meal> getAll(int userId, LocalDate dateFrom, LocalDate dateTo);
+    List<Meal> getAlls(int userId, LocalDate dateFrom, LocalDate dateTo);
 }

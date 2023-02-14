@@ -53,7 +53,7 @@ public class InMemoryMealRepository implements MealRepository {
     }
 
     @Override
-    public List<Meal> getAll(int userId, LocalDate dateFrom, LocalDate dateTo) {
+    public List<Meal> getAlls(int userId, LocalDate dateFrom, LocalDate dateTo) {
         return getAll(userId, getValueFilter(Meal::getDate, dateFrom, dateTo, true, true));
     }
 

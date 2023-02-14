@@ -101,9 +101,7 @@ public class MealServlet extends HttpServlet {
     }
 
     private String getParameterOrDefault(HttpServletRequest request, String name) {
-
         String requestParameter = request.getParameter(name);
         return (requestParameter != null) ? requestParameter : "";
-
     }
 }

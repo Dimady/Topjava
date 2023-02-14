@@ -37,7 +37,7 @@ public class MealRestController {
     public List<MealTo> getAll(String dateFrom, String dateTo, String timeFrom, String timeTo) {
         Predicate<Meal> timeFilter = getValueFilter(Meal::getTime, parseOrNull(LocalTime::parse, timeFrom),
                 parseOrNull(LocalTime::parse, timeTo), true, false);
-        List<Meal> filteredMeals = service.getAll(authUserId(), parseOrNull(LocalDate::parse, dateFrom),
+        List<Meal> filteredMeals = service.getAlls(authUserId(), parseOrNull(LocalDate::parse, dateFrom),
                 parseOrNull(LocalDate::parse, dateTo));
         return MealsUtil.filterByPredicate(filteredMeals, MealsUtil.DEFAULT_CALORIES_PER_DAY, timeFilter);
     }
