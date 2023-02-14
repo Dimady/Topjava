@@ -14,12 +14,48 @@
         .excess {
             color: red;
         }
+
+        dl {
+            background: none repeat scroll 0 0 #FAFAFA;
+            margin: 8px 0;
+            padding: 0;
+        }
+
+        dt {
+            display: inline-block;
+            width: 170px;
+        }
+
+        dd {
+            display: inline-block;
+            margin-left: 8px;
+            vertical-align: top;
+        }
     </style>
 </head>
 <body>
 <section>
-    <h3><a href="index.html">Home</a></h3>
+    <h3><a href="index.jsp">Home</a></h3>
     <hr/>
+    <form method="get" action="meals">
+        <dl>
+            <dt>Date from:</dt>
+            <dd><input type="date" value="${param.dateFrom}" name="dateFrom"></dd>
+        </dl>
+        <dl>
+            <dt>Date to:</dt>
+            <dd><input type="date" value="${param.dateTo}" name="dateTo"></dd>
+        </dl>
+        <dl>
+            <dt>Time from</dt>
+            <dd><input type="time" value="${param.timeFrom}" name="timeFrom"></dd>
+        </dl>
+        <dl>
+            <dt>Time to</dt>
+            <dd><input type="time" value="${param.timeTo}" name="timeTo"></dd>
+        </dl>
+        <button type="submit">Filter</button>
+    </form>
     <h2>Meals</h2>
     <a href="meals?action=create">Add Meal</a>
     <br><br>
@@ -33,8 +69,8 @@
             <th></th>
         </tr>
         </thead>
-        <c:forEach items="${requestScope.meals}" var="meal">
-            <jsp:useBean id="meal" type="ru.javawebinar.topjava.model.MealTo"/>
+        <c:forEach items="${meals}" var="meal">
+            <jsp:useBean id="meal" type="ru.javawebinar.topjava.to.MealTo"/>
             <tr class="${meal.excess ? 'excess' : 'normal'}">
                 <td>
                         <%--${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}--%>
