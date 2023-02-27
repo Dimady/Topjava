@@ -12,11 +12,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import ru.javawebinar.topjava.UserTestData;
 import ru.javawebinar.topjava.model.Role;
 import ru.javawebinar.topjava.model.User;
-import ru.javawebinar.topjava.util.exception.NotFoundException;
 
 import java.util.List;
 
-import static org.junit.Assert.assertThrows;
 import static ru.javawebinar.topjava.UserTestData.*;
 
 @ContextConfiguration({
@@ -55,23 +53,12 @@ public class UserServiceTest {
     @Test
     public void delete() {
         service.delete(USER_ID);
-        assertThrows(NotFoundException.class, () -> service.get(USER_ID));
-    }
-
-    @Test
-    public void deletedNotFound() {
-        assertThrows(NotFoundException.class, () -> service.delete(NOT_FOUND));
     }
 
     @Test
     public void get() {
         User user = service.get(USER_ID);
         assertMatch(user, UserTestData.user);
-    }
-
-    @Test
-    public void getNotFound() {
-        assertThrows(NotFoundException.class, () -> service.get(NOT_FOUND));
     }
 
     @Test

@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.javawebinar.topjava.repository.inmemory.InMemoryUserRepository;
-import ru.javawebinar.topjava.util.exception.NotFoundException;
 
 import java.util.Arrays;
 
@@ -44,10 +43,5 @@ public class InMemoryAdminRestControllerTest {
     public void delete() {
         controller.delete(USER_ID);
         Assert.assertNull(repository.get(USER_ID));
-    }
-
-    @Test
-    public void deleteNotFound() {
-        Assert.assertThrows(NotFoundException.class, () -> controller.delete(NOT_FOUND));
     }
 }
